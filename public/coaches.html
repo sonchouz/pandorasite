@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Pandora</title>
+</head>
+<body>
+    <header class="bg-[#771088] fixed w-full z-20 top-0">
+  <nav aria-label="Global" class="flex  justify-evenly mx-px p-6 max-w-full items-center lg:px-10 xl:px-12">
+    <div class="flex items-center">
+      <a href="#" class="-m-2 p-1">
+        <span class="sr-only">Пандора</span>
+        <img src="/public/images/logo.png" alt="Логотип Пандора" class="h-12 min-w-[22px]" />
+      </a>
+      <span class="px-5 self-center text-base font-semibold text-white whitespace-nowrap lg:pl-6 md:pl-4">Пандора</span>
+    </div>
+
+    <!-- Бургер-меню для мобильных устройств и масштабирования -->
+    <button id="menu-toggle" class="lg:hidden focus:outline-none">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+
+    <!-- Меню для десктопов -->
+    <div id="menu" class="hidden lg:flex items-center lg:gap-x-10 md:gap-x-7">
+      <div class="relative">
+        <a href="/public/index.html" class="flex items-center gap-x-2 text-sm font-semibold text-white hover:text-gray-200 transition">
+          Главная
+        </a>
+      </div>
+      <a href="#" class="text-sm font-bold text-white hover:text-gray-200 transition">Тренера</a>
+      <a href="/public/dance.html" class="text-sm font-semibold text-white hover:text-gray-200 transition">Направления</a>
+      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200 transition">Расписание</a>
+      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200 transition">Мероприятия</a>
+      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200 transition">Контакты</a>
+      <a href="/public/authorization.html" class="text-sm font-semibold text-white hover:text-gray-200 transition">Зарегистрироваться | Войти</a>
+    </div>
+  </nav>
+
+  <!-- Мобильное меню (выпадающее) -->
+  <div id="mobile-menu" class="hidden bg-[#771088] lg:hidden w-full">
+    <div class="flex flex-col items-start px-6 py-4 space-y-4">
+      <a href="/public/index.html" class="text-base font-semibold text-white hover:text-gray-200 transition">Главная</a>
+      <a href="#" class="text-base font-bold text-white hover:text-gray-200 transition">Тренера</a>
+      <a href="/public/dance.html" class="text-base font-semibold text-white hover:text-gray-200 transition">Направления</a>
+      <a href="#" class="text-base text-white hover:text-gray-200 transition">Расписание</a>
+      <a href="#" class="text-base font-semibold text-white hover:text-gray-200 transition">Мероприятия</a>
+      <a href="#" class="text-base font-semibold text-white hover:text-gray-200 transition">Контакты</a>
+      <a href="/public/authorization.html" class="text-base font-semibold text-white hover:text-gray-200 transition">Зарегистрироваться | Войти</a>
+    </div>
+  </div>
+</header>
+ <div class="mx-auto max-w-3xl px-4 py-10 my-16 sm:px-10 lg:max-w-7xl">
+    <div class="px-autо grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-15" id="coachesdiv">
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-[350px] w-full" src="/public/images/margo.jpg" alt="" />
+            </a>
+            <div class="p-5 text-center">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Марго</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Победитель и призер городских и региональных турниров по направлениям bellydance, hustle&discofox
+
+          Тренерский опыт: 20 лет
+
+          <br>Направления: BellyDance,Hustle & Discofox, Latina Solo, Dance Mix
+          </p>
+            </div>
+        </div>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-[350px] w-full" src="/public/images/irina.jpg" alt="" />
+            </a>
+            <div class="p-5 text-center">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Ирина</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Сертифицированный тренер по йоге
+
+                <br>Призер турниров по латине соло в номинации "АНСАМБЛИ"
+                <br>Направления:<br>Yoga-stretching</p>
+            </div>
+        </div>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-[350px] w-full" src="/public/images/juliajpg.jpg" alt="" />
+            </a>
+            <div class="p-5 text-center">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Юлия</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Победитель и призер городских, региональных и международных конкурсов  по направлению bellydance
+                <br>Тренерский опыт: 6 лет
+                 <br>Направления: BellyDance
+</p>
+            </div>
+        </div>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-[350px]" src="/public/images/aleksei.jpg" alt="" />
+            </a>
+            <div class="p-5 text-center">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Алексей</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Победитель и призер городских и региональных турниров по направлению hustle&discofox
+                <br>Тренерский опыт: 10 лет
+                <br>Направления: Hustle & Discofox</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  <script src="/public/scripts/coaches.js"></script>
+</body>
+</html>
