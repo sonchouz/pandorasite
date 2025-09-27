@@ -92,7 +92,8 @@ const firebaseConfig = {
             Login: nickname,
             Password: password,
             Phone: phone,
-            ID: UserId // Уникальный ID
+            ID: UserId,// Уникальный ID
+            Role: 'user'
         };
         await set(ref(database, `Users/${UserId}`), userData);
         Swal.fire({

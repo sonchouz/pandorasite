@@ -1,3 +1,51 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+import { getDatabase, ref, get, set, push} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAZXeRP-U6v8d9ZJGZwGFBevQNWP5JRD7Y",
+    authDomain: "pandorasite-6cccf.firebaseapp.com",
+    databaseURL: "https://pandorasite-6cccf-default-rtdb.firebaseio.com",
+    projectId: "pandorasite-6cccf",
+    storageBucket: "pandorasite-6cccf.firebasestorage.app",
+    messagingSenderId: "593153776184",
+    appId: "1:593153776184:web:d7e830b7436eaf788f64cd",
+    measurementId: "G-FNWBL482FW"
+
+  };
+ const app = initializeApp(firebaseConfig);
+ const database = getDatabase(app);
+ const container = document.getElementById('coachesdiv')
+function displaycoaches()
+{
+
+}
+ function createcoachescard(data, key)
+ {
+    const coachdiv = document.createElement('div');
+    coachdiv.className = 'max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700';
+    coachdiv.dataset.key = key;
+    coachdiv.innerHTML=`
+     <a href="#">
+                <img class="rounded-t-lg h-[350px] w-full" src="/public/images/margo.jpg" alt="" />
+            </a>
+            <div class="p-5 text-center">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Марго</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Победитель и призер городских и региональных турниров по направлениям bellydance, hustle&discofox
+
+          Тренерский опыт: 20 лет
+
+          <br>Направления: BellyDance,Hustle & Discofox, Latina Solo, Dance Mix
+          </p>
+    `;
+    coachdiv.addEventListener('click', (event) =>
+    {
+      event.preventDefault();
+    });
+    return coachdiv;
+  }
+
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
