@@ -142,7 +142,15 @@ const firebaseConfig = {
             // Сохранение данных пользователя в localStorage
             localStorage.setItem('userID', user.ID);
             localStorage.setItem('userlogin', login);
-            window.location.href='index.html';
+            const isAdmin = user.Role ==='admin';
+             if (isAdmin) {
+                // Перенаправление на страницу администратора
+                window.location.href = 'adminpanel.html';
+            }
+            else {
+                // Перенаправление на страницу спортсмена
+                window.location.href = 'index.html';
+            }
         } else {
             // Пользователь не найден или неверный email/пароль
             console.error('Ошибка при получении данных пользователя');

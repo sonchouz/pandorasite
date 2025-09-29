@@ -17,8 +17,24 @@ const firebaseConfig = {
  const container = document.getElementById('coachesdiv')
 function displaycoaches()
 {
-
+   container.innerHTML = ''; // Очистка перед загрузкой
+    const coachesRef = ref(database, "Coaches");
+     get(coachesRef).then(snapshot => {
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      Object.keys(data).forEach(key => {
+        const coachData = data[key];
+        const card = createcoachescard(coachData, key);
+        container.appendChild(card);
+      });
+    } else {
+      console.log("Нет данных");
+    }
+  }).catch(error => {
+    console.error("Ошибка загрузки данных:", error);
+  });
 }
+ 
  function createcoachescard(data, key)
  {
     const coachdiv = document.createElement('div');
@@ -26,17 +42,17 @@ function displaycoaches()
     coachdiv.dataset.key = key;
     coachdiv.innerHTML=`
      <a href="#">
-                <img class="rounded-t-lg h-[350px] w-full" src="/public/images/margo.jpg" alt="" />
+                <img class="rounded-t-lg h-[350px] w-full" src="" alt="" />
             </a>
             <div class="p-5 text-center">
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Марго</h5>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${data.Name}</h5>
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Победитель и призер городских и региональных турниров по направлениям bellydance, hustle&discofox
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"> ${data.Info}
 
-          Тренерский опыт: 20 лет
+          <br>Тренерский опыт: ${data.Work} 
 
-          <br>Направления: BellyDance,Hustle & Discofox, Latina Solo, Dance Mix
+          <br>Направления: ${data.Dance}
           </p>
     `;
     coachdiv.addEventListener('click', (event) =>
@@ -56,3 +72,4 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+  document.addEventListener('DOMContentLoaded', displaycoaches);
