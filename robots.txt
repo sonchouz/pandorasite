@@ -1,5 +1,4 @@
 User-agent: *
-Allow: /
-User-agent: AdsBot-Google
-Disallow: /
-Sitemap: https://127.0.0.1:5500/sitemap.xml
+
+Disallow: 
+Sitemap: https://pandorasite-8tqr.vercel.app//sitemap.xml
