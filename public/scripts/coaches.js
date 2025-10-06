@@ -42,7 +42,7 @@ function displaycoaches()
     coachdiv.dataset.key = key;
     coachdiv.innerHTML=`
      <a href="#">
-                <img class="rounded-t-lg h-[350px] w-full" src="" alt="" />
+                <img class="rounded-t-lg h-[350px] w-full" src="" alt="${data.Name}" />
             </a>
             <div class="p-5 text-center">
                 <a href="#">
