@@ -2,20 +2,16 @@ from flask import Flask, send_from_directory, redirect, url_for, Response
 from slugify import slugify
 import os
 
-# Создаём приложение Flask
 app = Flask(
     __name__,
-    static_folder="public",      # где искать статические файлы
-    static_url_path=""           # чтобы Flask их видел как /scripts/, /styles/, /images/
+    static_folder="public",      
+    static_url_path=""           
 )
 
 # Папка с HTML-страницами
 site_dir = os.path.join(os.path.dirname(__file__), "public")
 
-# Словарь slug → имя файла
 page_map = {}
-
-# Собираем карту сайта
 for filename in os.listdir(site_dir):
     if filename.endswith(".html"):
         name = os.path.splitext(filename)[0]
@@ -23,19 +19,16 @@ for filename in os.listdir(site_dir):
             slug = slugify(name)
             page_map[slug] = filename
 
-# Главная страница
 @app.route("/")
 def index():
     return send_from_directory(site_dir, "index.html")
 
-# Человекочитаемый URL (например /coaches)
 @app.route("/<slug>")
 def serve_page(slug):
     if slug in page_map:
         return send_from_directory(site_dir, page_map[slug])
     return "Страница не найдена 😢", 404
 
-# Редирект с .html на “чистый” адрес
 @app.route("/<slug>.html")
 def redirect_html(slug):
     if slug in page_map:
