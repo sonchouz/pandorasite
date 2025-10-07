@@ -1,31 +1,29 @@
-from flask import Flask, send_from_directory, redirect
+from flask import Flask, send_from_directory
 from slugify import slugify
 import os
 
 app = Flask(__name__)
-
-# Определяем папку сайта
 site_dir = os.path.join(os.path.dirname(__file__), "public")
+
+# Соберём все HTML-файлы и создадим slug-версии
+page_map = {}
+for filename in os.listdir(site_dir):
+    if filename.endswith(".html") and filename != "index.html":
+        name = os.path.splitext(filename)[0]
+        page_map[slugify(name)] = filename
 
 @app.route("/")
 def index():
     return send_from_directory(site_dir, "index.html")
 
-@app.route("/<path:page>")
-def page(page):
-    # убираем лишние слеши в конце и делаем slug
-    clean_name = slugify(page.strip("/"))
-    filename = f"{clean_name}.html"
-    filepath = os.path.join(site_dir, filename)
-
-    if os.path.exists(filepath):
-        return send_from_directory(site_dir, filename)
-    # если в конце был "/", пробуем без него
-    elif os.path.exists(os.path.join(site_dir, clean_name, "index.html")):
-        return send_from_directory(os.path.join(site_dir, clean_name), "index.html")
-    else:
-        return "Страница не найдена 😢", 404
+@app.route("/<slug>")
+def serve_page(slug):
+    if slug in page_map:
+        return send_from_directory(site_dir, page_map[slug])
+    return "Страница не найдена", 404
 
 if __name__ == "__main__":
-    print(f"Сервер запущен. Папка сайта: {site_dir}")
+    print("Сгенерированные человекочитаемые URL:")
+    for url, file in page_map.items():
+        print(f"/{url} → {file}")
     app.run(debug=True)
