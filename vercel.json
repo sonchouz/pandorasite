@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "https://pandorasite.vercel.app/coaches.html",
+      "destination": "https://pandorasite.vercel.app/coaches"
+    }
+  ]
+}
