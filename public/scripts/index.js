@@ -1,15 +1,8 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-  });
-
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  const mobileMenu = document.getElementById('mobile-menu');
+  mobileMenu.classList.toggle('hidden');
+});
   const carouselElement = document.getElementById('controls-carousel');
 
 const items = [

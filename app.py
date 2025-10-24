@@ -8,14 +8,13 @@ app = Flask(
     static_url_path=""           
 )
 
-# Папка с HTML-страницами
 site_dir = os.path.join(os.path.dirname(__file__), "public")
 
 page_map = {}
 for filename in os.listdir(site_dir):
     if filename.endswith(".html"):
         name = os.path.splitext(filename)[0]
-        if name != "index":  # исключаем index.html
+        if name != "index":  
             slug = slugify(name)
             page_map[slug] = filename
 

@@ -42,16 +42,20 @@ const titleElement = document.querySelector('h2.text-2xl');
 const paragraphElement = document.querySelector('p.text-gray-900');
 const imageElement = document.querySelector('img.w-full.rounded-lg');
 
-// Функция для сброса стилей всех кнопок
+const drawerButton = document.querySelector('[data-drawer-toggle]');
+  const drawer = document.getElementById('default-sidebar');
+  drawerButton.addEventListener('click', () => {
+    drawer.classList.toggle('-translate-x-full');
+  });
 function resetButtonStyles() {
     sidebarLinks.forEach(link => {
-        link.classList.remove('bg-gray-300'); // Удаляем темный фон
-       // Возвращаем исходный фон
+        link.classList.remove('bg-gray-300'); 
+
     });
 }
 
 function setContentAndStyles(link, buttonText) {
-    // Обновляем заголовок и текст
+ 
     if (contentData[buttonText]) {
         titleElement.textContent = contentData[buttonText].title;
         paragraphElement.textContent = contentData[buttonText].text;
@@ -59,10 +63,10 @@ function setContentAndStyles(link, buttonText) {
 
     }
 
-    // Сбрасываем стили всех кнопок
+ 
     resetButtonStyles();
 
-    // Добавляем темный фон для активной кнопки
+   
     link.classList.remove('bg-gray-100');
     link.classList.add('bg-gray-300');
 }
@@ -70,18 +74,29 @@ function setContentAndStyles(link, buttonText) {
 document.addEventListener('DOMContentLoaded', () => {
     const firstLink = sidebarLinks[0];
     const firstButtonText = firstLink.querySelector('span').textContent;
-    setContentAndStyles(firstLink, firstButtonText); // Устанавливаем контент и стиль для первой кнопки
+    setContentAndStyles(firstLink, firstButtonText); 
 });
 
-// Добавляем обработчик событий для каждой кнопки
+
 sidebarLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault(); // Предотвращаем переход по ссылке
+        e.preventDefault(); 
 
-        // Получаем текст кнопки
+     
         const buttonText = link.querySelector('span').textContent;
 
-        // Устанавливаем контент и стили для нажатой кнопки
+   
         setContentAndStyles(link, buttonText);
     });
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const drawerButton = document.querySelector('[data-drawer-toggle]');
+  const drawer = document.getElementById('default-sidebar');
+
+  drawerButton.addEventListener('click', () => {
+    // переключаем два класса: скрыть (-translate-x-full) / показать (translate-x-0)
+    drawer.classList.toggle("bg-white")
+    drawer.classList.toggle('-translate-x-full');
+    drawer.classList.toggle('translate-x-0');
+  });
 });
