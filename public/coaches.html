@@ -12,53 +12,45 @@
     <meta property="og:title" content="Пандора - Тренера">
 </head>
 <body>
-    <header class="bg-[#9932CC] fixed w-full z-20 top-0">
-  <nav aria-label="Global" class="flex  justify-evenly mx-px p-6 max-w-full items-center lg:px-10 xl:px-12">
+   <header class="bg-[#9932CC] fixed w-full z-20 top-0">
+  <nav aria-label="Global" class="max-w-screen relative flex justify-between p-4 sm:p-6 items-center">
     <div class="flex items-center">
-      <a href="#" class="-m-2 p-1">
-        <span class="sr-only">Пандора</span>
-        <img src="/images/logo.png" alt="Логотип Пандора" class="h-12 min-w-[22px]" />
+      <a href="#">
+        <img src="/images/logo.png" alt="Логотип Пандора" class="h-10 w-auto lg:h-12" />
       </a>
-      <span class="px-5 self-center text-base font-semibold text-white whitespace-nowrap lg:pl-6 md:pl-4">Пандора</span>
+      <span class="ml-3 text-base font-semibold text-white">Пандора</span>
     </div>
-
-    <!-- Бургер-меню для мобильных устройств и масштабирования -->
+    <!-- кнопка бургер‑меню -->
     <button id="menu-toggle" class="lg:hidden focus:outline-none">
-      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
       </svg>
     </button>
-
-    <!-- Меню для десктопов -->
-    <div id="menu" class="hidden lg:flex items-center lg:gap-x-10 md:gap-x-7">
-      <div class="relative">
-        <a href="/" class="flex items-center gap-x-2 text-sm font-semibold text-white hover:text-gray-200 transition">
-          Главная
-        </a>
-      </div>
-      <a href="#" class="text-sm font-bold text-white hover:text-gray-200 transition">Тренера</a>
-      <a href="/dance" class="text-sm font-semibold text-white hover:text-gray-200 transition">Направления</a>
-      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200 transition">Расписание</a>
-      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200 transition">Мероприятия</a>
-      <a href="/abonements" class="text-sm font-semibold text-white hover:text-gray-200 transition">Абонементы</a>
-      <a href="/authorization" class="text-sm font-semibold text-white hover:text-gray-200 transition">Зарегистрироваться | Войти</a>
+    <!-- меню на десктопах -->
+     <div id="menu" class="max-w-full hidden lg:ml-5 lg:flex lg:absolute lg:inset-y-0 lg:left-1/2 lg:-translate-x-1/2 lg:items-center gap-x-7">
+      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200">Главная</a>
+      <a href="/coaches" class="text-sm font-bold text-white hover:text-gray-200">Тренера</a>
+      <a href="/dance" class="text-sm font-semibold text-white hover:text-gray-200">Направления</a>
+      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200">Расписание</a>
+      <a href="#" class="text-sm font-semibold text-white hover:text-gray-200">Мероприятия</a>
+      <a href="/abonements" class="text-sm font-semibold text-white hover:text-gray-200">Абонементы</a>
+      <a href="/authorization" class="text-sm font-semibold text-white hover:text-gray-200">Зарегистрироваться | Войти</a>
     </div>
   </nav>
-
-  <!-- Мобильное меню (выпадающее) -->
+  <!-- мобильное меню -->
   <div id="mobile-menu" class="hidden bg-[#9932CC] lg:hidden w-full">
-    <div class="flex flex-col items-start px-6 py-4 space-y-4">
-      <a href="/" class="text-base font-semibold text-white hover:text-gray-200 transition">Главная</a>
-      <a href="#" class="text-base font-bold text-white hover:text-gray-200 transition">Тренера</a>
-      <a href="/dance" class="text-base font-semibold text-white hover:text-gray-200 transition">Направления</a>
-      <a href="#" class="text-base text-white hover:text-gray-200 transition">Расписание</a>
-      <a href="#" class="text-base font-semibold text-white hover:text-gray-200 transition">Мероприятия</a>
-      <a href="/abonements" class="text-base font-semibold text-white hover:text-gray-200 transition">Абонементы</a>
-      <a href="/authorization" class="text-base font-semibold text-white hover:text-gray-200 transition">Зарегистрироваться | Войти</a>
+    <div class="flex flex-col px-6 py-4 space-y-4">
+      <a href="#" class="text-base font-bold text-white hover:text-gray-200">Главная</a>
+      <a href="/coaches" class="text-base font-semibold text-white hover:text-gray-200">Тренера</a>
+      <a href="/dance" class="text-base font-semibold text-white hover:text-gray-200">Направления</a>
+      <a href="#" class="text-base text-white hover:text-gray-200">Расписание</a>
+      <a href="#" class="text-base font-semibold text-white hover:text-gray-200">Мероприятия</a>
+      <a href="/abonements" class="text-base font-semibold text-white hover:text-gray-200">Абонементы</a>
+      <a href="/authorization" class="text-base font-semibold text-white hover:text-gray-200">Зарегистрироваться | Войти</a>
     </div>
   </div>
 </header>
- <div class="mx-auto max-w-3xl px-4 py-15 my-16 sm:px-10 lg:max-w-7xl">
+ <div class="mx-auto max-w-3xl px-8 py-15 my-16 sm:px-10 lg:max-w-7xl">
     <div class="px-autо grid grid-cols-1 gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 xl:gap-x-15" id="coachesdiv">
         
         
@@ -66,6 +58,6 @@
         
     </div>
   </div>
-  <script type="module" src="/scripts/coaches.js"></script>
+  <script defer type="module" src="/scripts/coaches.js"></script>
 </body>
 </html>

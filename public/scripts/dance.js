@@ -94,9 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const drawer = document.getElementById('default-sidebar');
 
   drawerButton.addEventListener('click', () => {
-    // переключаем два класса: скрыть (-translate-x-full) / показать (translate-x-0)
     drawer.classList.toggle("bg-white")
     drawer.classList.toggle('-translate-x-full');
     drawer.classList.toggle('translate-x-0');
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
