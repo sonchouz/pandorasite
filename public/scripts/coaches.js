@@ -1,5 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getDatabase, ref, get, set, push} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+const supabaseURL = "https://tcscvsenprtrzeftuykw.supabase.co";
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjc2N2c2VucHJ0cnplZnR1eWt3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE4NzAwMzksImV4cCI6MjA3NzQ0NjAzOX0.vRy19orGsx_H8h4GNBNBCDiV9eHGUAWrRGqow4kylTs";
+const supabase = createClient(supabaseURL, supabaseAnonKey);
 
 const firebaseConfig = {
     apiKey: "AIzaSyAZXeRP-U6v8d9ZJGZwGFBevQNWP5JRD7Y",
@@ -14,6 +18,9 @@ const firebaseConfig = {
   };
  const app = initializeApp(firebaseConfig);
  const database = getDatabase(app);
+
+ const uid = () => crypto.randomUUID?.() || String(Date.now());
+
  const container = document.getElementById('coachesdiv')
 function displaycoaches()
 {
@@ -42,7 +49,7 @@ function displaycoaches()
     coachdiv.dataset.key = key;
     coachdiv.innerHTML=`
      <a href="#">
-                <img class="rounded-t-lg h-[300px] w-full" src="" alt="${data.Name}" />
+                <img class="rounded-t-lg h-[300px] w-full" src="${data.Image}" alt="${data.Name}" />
             </a>
             <div class="p-5 text-center">
                 <a href="#">
